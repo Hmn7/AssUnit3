@@ -1,0 +1,79 @@
+package com.company;
+
+import javax.swing.JOptionPane;
+public class Quiz {
+
+    static int nQuestions = 0;
+    static int nCorrect = 0;
+
+
+    static String ask(String question) {
+        while (true) {
+
+            String answer = JOptionPane.showInputDialog(question);
+            answer = answer.toUpperCase();
+
+            boolean valid = (answer.equals("A") || answer.equals("B") || answer.equals("C") || answer.equals("D") || answer.equals("E"));
+            if (valid) return answer;
+            JOptionPane.showMessageDialog(null,"Invalid answer. Please enter A, B, C, D, or E.");
+        }
+    }
+
+
+    static void check(String question, String correctAnswer) {
+        nQuestions++;
+        String answer = ask(question);
+        if (answer.equals(correctAnswer)) {
+            JOptionPane.showMessageDialog(null, "Correct!");
+            nCorrect++;
+        } else {
+            JOptionPane.showMessageDialog(null, "Incorrect. The correct answer is " + correctAnswer + ".");
+        }
+    }
+
+
+
+            public static void main(String[] args) {
+        String question = "Which of the following is a number?\n";
+        question += "A. four\n";
+        question += "B. circle\n";
+        question += "C. red\n";
+        question += "D. white\n";
+        question += "E. blue\n";
+        check(question,"A");
+
+        question = "Which of the following is a number?\n";
+        question += "A. green\n";
+        question += "B. six\n";
+        question += "C. black\n";
+        question += "D. white\n";
+        question += "E. square\n";
+        check(question,"B");
+
+        question = "Which of the following is a number?\n";
+        question += "A. four\n";
+        question += "B. triangle\n";
+        question += "C. six\n";
+        question += "D. seven\n";
+        question += "E. eight\n";
+        check(question,"C");
+
+
+        question = "Which of the following is a number?\n";
+        question += "A. black\n";
+        question += "B. yellow\n";
+        question += "C. purple\n";
+        question += "D. seven\n";
+        question += "E. orange\n";
+        check(question,"D");
+
+
+        question = "Which of the following is a number?\n";
+        question += "A. rectangle\n";
+        question += "B. triangle\n";
+        question += "C. square\n";
+        question += "D. circle\n";
+        question += "E. eights\n";
+        check(question,"E");
+    }
+}
